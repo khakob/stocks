@@ -5,7 +5,7 @@ ruby '2.5.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'sprockets-rails'
 gem 'jquery-rails'
-gem "stock_quote", '~> 2.0.0' 
+gem "stock_quote", '~> 3.0.0' 
 gem 'rb-readline'
 gem 'devise', '~> 4.2'
 
@@ -42,12 +42,17 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+group :production do
+    gem 'pg', '~> 1.1', '>= 1.1.4'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
+  gem 'sqlite3', '<1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
