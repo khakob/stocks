@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem "stock_quote", '~> 3.0.0' 
 gem 'rb-readline'
 gem 'devise', '~> 4.2'
+gem 'aasm', '~> 5.0', '>= 5.0.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

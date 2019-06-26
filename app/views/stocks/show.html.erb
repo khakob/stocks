@@ -1,24 +1,24 @@
 <% @ticker = StockQuote::Stock.quote(@stock.ticker) %>
-      <% StockQuote::Stock.new(api_key: 'pk_7c9c64f121da43cc96148632687d5e40') %>
-      <% @logo = StockQuote::Stock.logo(@stock.ticker) %>
-      
-      <% if !@ticker %>
-        
-         The ticker: <%= @stock.ticker %><br/> does not exist!
-      <% else %>
-        <%= image_tag(@logo.url) %>
-        <%= @ticker.company_name %><br/>
-        <strong>Symbol:</strong> <%= @ticker.symbol %><br/>
-        <strong>Last:</strong> $<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',') %><br/>
-        <strong>Change:</strong> $<%= @ticker.change %><br/>
-        <strong>% Change:</strong> <%= number_with_precision(@ticker.change_percent * 100, :precision => 2, :delimiter => ',') %>%<br/>
-        <strong>MKT Cap:</strong> $<%= number_with_precision(@ticker.market_cap, :precision => 0,
-        :delimiter => ',') %><br/>
-        <strong>52Week High:</strong> $<%= number_with_precision(@ticker.week52_high, :precision => 2, :delimiter => ',') %><br/>
-        <strong>52Week Low:</strong> $<%= number_with_precision(@ticker.week52_low, :precision => 2,
-        :delimiter => ',') %><br/>
-        <strong>YTD Change:</strong> <%= number_with_precision(@ticker.ytd_change * 100, :precision => 2, :delimiter => ',') %>%<br/>
-      <% end %>
+  <% StockQuote::Stock.new(api_key: 'pk_7c9c64f121da43cc96148632687d5e40') %>
+  <% @logo = StockQuote::Stock.logo(@stock.ticker) %>
+  
+  <% if !@ticker %>
+    
+      The ticker: <%= @stock.ticker %><br/> does not exist!
+  <% else %>
+    <%= image_tag(@logo.url) %>
+    <%= @ticker.company_name %><br/>
+    <strong>Symbol:</strong> <%= @ticker.symbol %><br/>
+    <strong>Last:</strong> $<%= number_with_precision(@ticker.latest_price, :precision => 2, :delimiter => ',') %><br/>
+    <strong>Change:</strong> $<%= @ticker.change %><br/>
+    <strong>% Change:</strong> <%= number_with_precision(@ticker.change_percent * 100, :precision => 2, :delimiter => ',') %>%<br/>
+    <strong>MKT Cap:</strong> $<%= number_with_precision(@ticker.market_cap, :precision => 0,
+    :delimiter => ',') %><br/>
+    <strong>52Week High:</strong> $<%= number_with_precision(@ticker.week52_high, :precision => 2, :delimiter => ',') %><br/>
+    <strong>52Week Low:</strong> $<%= number_with_precision(@ticker.week52_low, :precision => 2,
+    :delimiter => ',') %><br/>
+    <strong>YTD Change:</strong> <%= number_with_precision(@ticker.ytd_change * 100, :precision => 2, :delimiter => ',') %>%<br/>
+<% end %>
 <br/><br/>
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Back', stocks_path %>
