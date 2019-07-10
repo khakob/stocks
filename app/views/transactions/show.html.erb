@@ -21,10 +21,10 @@
 <% end %>
 <br/><br/>
 <%= form_tag transactions_path, :method => 'POST' do %>
-    <%= text_field_tag 'quantity', nil, placeholder: "
+    <%= text_field_tag 'num_shares', nil, placeholder: "
         Enter Quantity", size: 50 %>
     <%= submit_tag 'Buy' %>
 <% end %>
 <br/><br/>
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

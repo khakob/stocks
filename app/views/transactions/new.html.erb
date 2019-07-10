@@ -1,0 +1,29 @@
+<h1>Transactions</h1>
+
+<%= form_with(model: @transaction, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :ticker %>
+    <%= form.text_field :ticker, id: :stock_ticker %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Number of Shares" %>
+    <%= form.text_field :num_shares %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Order Type" %>
+    <%= form.select :order_type, ['Buy', 'Sell'] %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id, id: :transaction_user_id, value: current_user.id,
+    type: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+
+  </div>
+<% end %>

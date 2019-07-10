@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :stocks
+  resources :transactions
   devise_for :users
   root 'home#index'
   get 'home/about'

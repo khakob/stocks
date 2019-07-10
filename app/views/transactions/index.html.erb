@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @stocks.each do |stock| %>
+    <% @transactions.each do |stock| %>
       
       <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
       <% StockQuote::Stock.new(api_key: 'pk_7c9c64f121da43cc96148632687d5e40') %>
@@ -29,8 +29,8 @@
         
         <td>N/A</td>
       
-        <td><center><%= link_to 'Edit', edit_stock_path(transaction), class: 'btn btn-secondary' %></center></td>
-        <td><center><%= link_to 'Delete', stock, method: :delete, data: {
+        <td><center><%= link_to 'Edit', edit_transaction_path(stock), class: 'btn btn-secondary' %></center></td>
+        <td><center><%= link_to 'Delete', transaction, method: :delete, data: {
         confirm: 'Are you sure?' }, class: 'btn btn-danger' %></center></td>
       </tr>
       <% else %>
@@ -47,8 +47,16 @@
           <td>$<%= number_with_precision(@ticker.week52_low, :precision => 2,
           :delimiter => ',') %></td>
           
+
+          <td><center><%= link_to 'Edit', edit_transaction_path(stock), class: 'btn btn-secondary' %></center></td>
+          <td><center><%= link_to 'Delete', transaction, method: :delete, data: { confirm:
+      'Are you sure?' }, class: 'btn btn-danger' %></center></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path %>

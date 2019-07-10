@@ -1,16 +1,20 @@
 <h1>Stocks</h1>
 
-<%= form_tag root_path, :method => 'POST' do %>
-    <%= text_field_tag 'ticker', nil, placeholder: "
-        Enter Ticker Symbol", size: 50 %>
-    <%= submit_tag 'Lookup' %>
+<%= form_tag(root_path, method: :post, role: 'form') do %>
+  <div class='row'>
+    <div class="form-group col-xs-6 col-md-4">
+      <%= text_field_tag 'ticker', nil, placeholder: "
+          Enter Ticker Symbol", class: 'form-control' %>
+      <%= submit_tag 'Lookup', class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>
 
-<p>This is my first rails stocks app!</p>
+<br/>
 
-<% if @stock %>
-  <%= @stock.company_name %>
-  $<%= @stock.latest_price %>
+<% if @ticker %>
+  <%= @ticker.company_name %><br/>
+	$<%= @ticker.latest_price %><br/>
 <% elsif @nothing%>
   <%= @nothing%>  
 <% end %>
