@@ -12,12 +12,15 @@
 
 <br/>
 
-<% if @ticker %>
-  <%= @ticker.company_name %><br/>
-	$<%= @ticker.latest_price %><br/>
+<% if @quote %>
+  <%= @quote.company_name %><br/>
+	$<%= @quote.latest_price %><br/>
+	P/E: <%= @stats.pe_ratio %><br/>
 <% elsif @nothing%>
   <%= @nothing%>  
 <% end %>
+
+
 
 <% if @error %>
     <%= @error %>
