@@ -7,7 +7,7 @@ gem 'sprockets-rails'
 gem 'jquery-rails'
 gem "stock_quote", '~> 3.0.0' 
 gem 'rb-readline'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'aasm', '~> 5.0', '>= 5.0.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
